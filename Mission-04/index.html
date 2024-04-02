@@ -29,12 +29,14 @@
 
     <div id="wrap">
       <header id="header" class="container">
-        <button name="카테고리" class="button--category"><div>카테고리</div></button>
+        <button name="카테고리" class="button--category"><span class="hamburger"></span>카테고리<span></span></button>
         <a href="https://www.coupang.com/" target="_blank" class="logo" rel="noopener noreferrer">
           <h1 class="blind">Coupang</h1>
         </a>
-        <div class="search_wrap">
-          <select name="" id=""></select>
+        <form class="search_wrap">
+          <select name="" id="">
+            <option value="total">전체</option>
+          </select>
           <input type="search" placeholder="찾고 싶은 상품을 검색해 보세요!" />
           <button class="mic" value="mic">
             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -60,10 +62,10 @@
               />
             </svg>
           </button>
-        </div>
+        </form>
 
         <div class="myCoupang">
-          <button>마이쿠팡</button>
+          <button class="btn">마이쿠팡</button>
           <ul class="blind">
             <li><a href="">주문목록</a></li>
             <li><a href="">취소/반품</a></li>
@@ -71,7 +73,7 @@
           </ul>
         </div>
         <div class="cart">
-          <button>장바구니</button>
+          <button class="btn">장바구니</button>
           <div></div>
           <div></div>
         </div>

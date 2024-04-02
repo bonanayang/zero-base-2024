@@ -1,4 +1,9 @@
 /* 공통 */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 #wrap {
   width: 1020px;
   margin: 0 auto;
@@ -17,6 +22,15 @@ ol {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+select,
+button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: inherit;
+  font-size: 12px;
 }
 
 /* 헤더 */
@@ -75,4 +89,100 @@ ol {
 
 .cart {
   grid-area: cart;
+}
+
+/* button--category */
+.button--category {
+  width: 110px;
+  height: 116px;
+  background-color: var(--color-blue-600);
+  color: var(--color-white);
+  font-size: 12px;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger {
+  background-image: url(../../assets/icon/hamburger.svg);
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* search_wrap */
+.search_wrap {
+  position: relative;
+  width: 516px;
+  height: 40px;
+  border: 1px solid var(--color-blue-600);
+}
+
+.search_wrap select {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: none;
+  width: 135px;
+  height: 38px;
+  border-right: 1px solid var(--color-gray-100);
+}
+
+.search_wrap input {
+  position: absolute;
+  left: 135px;
+  width: 297px;
+  height: 38px;
+  border-radius: 0;
+  border: none;
+  margin-left: 13px;
+  font-size: 12px;
+}
+
+.search_wrap .mic {
+  position: absolute;
+  right: 40px;
+  width: 40px;
+  height: 38px;
+  background-color: inherit;
+  border: none;
+}
+
+.search_wrap .search {
+  position: absolute;
+  right: 0;
+  width: 40px;
+  height: 38px;
+  background-color: inherit;
+  border: none;
+}
+
+/* myCoupang */
+.myCoupang .btn {
+  width: 90px;
+  height: 58px;
+}
+
+/* cart */
+.cart .btn {
+  width: 45px;
+  height: 58px;
+}
+
+/* type-nav */
+
+.type-nav {
+  height: 26px;
+}
+.type-nav ul {
+  display: flex;
+  flex-direction: row;
+}
+
+.type-nav ul li {
+  padding-right: 2px;
 }
