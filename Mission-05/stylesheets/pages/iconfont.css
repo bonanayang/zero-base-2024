@@ -1,0 +1,82 @@
+/* ---------------------------------------------- */
+/* Icon Font                                      */
+/* ---------------------------------------------- */
+
+@font-face {
+  font-family: 'iconfont';
+  src: url('../../assets/iconfont/fonts/iconfont.eot?e4rxph');
+  src: url('../../assets/iconfont/fonts/iconfont.eot?e4rxph#iefix') format('embedded-opentype'),
+    url('../../assets/iconfont/fonts/iconfont.ttf?e4rxph') format('truetype'),
+    url('fonts/iconfont.woff?e4rxph') format('woff'),
+    url('../../assets/iconfont/fonts/iconfont.svg?e4rxph#iconfont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'iconfont' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-baby:before {
+  content: '\e900';
+}
+.icon-beauty:before {
+  content: '\e901';
+}
+.icon-book:before {
+  content: '\e902';
+}
+.icon-car:before {
+  content: '\e903';
+}
+.icon-clothes:before {
+  content: '\e904';
+}
+.icon-foods:before {
+  content: '\e905';
+}
+.icon-houseware:before {
+  content: '\e906';
+}
+.icon-interior:before {
+  content: '\e907';
+}
+.icon-kitchenware:before {
+  content: '\e908';
+}
+.icon-pet:before {
+  content: '\e909';
+}
+.icon-sports:before {
+  content: '\e90a';
+}
+.icon-stationery:before {
+  content: '\e90b';
+}
+.icon-theme:before {
+  content: '\e90c';
+}
+.icon-toy:before {
+  content: '\e90d';
+}
+.icon-travel:before {
+  content: '\e90e';
+}
+.icon-appliances:before {
+  content: '\e90f';
+}
+.icon-film:before {
+  content: '\e913';
+}
