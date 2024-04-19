@@ -1,0 +1,263 @@
+// =============================================
+// // 함수 - 데이터와 호출, 기명과 익명 함수
+function hello() {
+  return "Hello~";
+}
+
+// 함수 데이터(Data)
+console.log(hello);
+console.log(typeof hello);
+
+// 함수 호출(Call)
+console.log(hello());
+console.log(typeof hello());
+
+// ---------------------------------------------
+const h1El = document.querySelector("h1");
+
+// 기명 함수 - function 이름() {}
+function handler() {
+  console.log(h1El.textContent);
+}
+h1El.addEventListener("click", handler);
+
+// 익명 함수 = function() {}
+h1El.addEventListener("click", function () {
+  console.log(h1El.textContent);
+});
+
+// =============================================
+// // 함수 - 선언과 표현, 호이스팅
+// 호이스팅(Hoisting)
+hello(); // OK!
+world(); //Error..
+
+// 함수 선언문 (Declaration)
+function hello() {
+  console.log("Hello~");
+}
+
+// 함수 표현식(Expression)
+const world = function () {
+  console.log("World~");
+};
+
+// ---------------------------------------------
+const fruits = getFruits();
+const movies = getMovies();
+
+function getFruits() {
+  // 코드1
+  // 코드2
+  // 코드3
+  // 코드4
+  // ...
+  // return fruoits
+}
+const getMovies = function () {
+  // 코드1
+  // 코드2
+  // 코드3
+  // 코드4
+  // ...
+  // return movies
+};
+
+// =============================================
+// // 함수 - 반환과 종료
+function sayHi(name) {
+  return `Hi, $(name)`;
+  console.log("동작하지 않음!");
+}
+const h = sayHi("Neo");
+console.log(h); // 'Hi, Neo~'
+
+console.log(sayHi("Neo")); // 'Hi, Neo~'
+
+// ---------------------------------------------
+function a() {
+  // return // undefined
+}
+function b() {
+  return; // undefined
+}
+function c() {
+  return undefined;
+}
+
+console.log(a()); // undefined
+console.log(b()); // undefined
+console.log(c()); // undefined
+
+// =============================================
+// // 함수 - 인수와 매개변수
+// 인수(Argument)와 매개변수(Parameter)
+
+function abc(a, b) {
+  return a + b;
+}
+console.log(add(2, 1));
+console.log(add(7, 4));
+console.log(add("A", "B"));
+
+// ---------------------------------------------
+// 인수(Argument)와 매개변수(Parameter)
+// 매개변수 기본값(Default Value)
+
+function add(a, b = 1) {
+  if (a === undefined) {
+    console.log("첫 번째 인수는 필수입니다!");
+    return;
+  }
+  return a + b;
+}
+console.log(add(2));
+console.log(add(2, undefined));
+console.log(add());
+
+// ---------------------------------------------
+// 인수(Argument)와 매개변수(Parameter)
+// 나머지 매개변수(Rest parameter)
+
+function add(a, b, ...rest) {
+  console.log(a, b, rest);
+  return rest.reduce((acc, cur) => acc + cur, 0);
+}
+const res = add(1, 2, 3, 4, 5, 6, 7, 8);
+console.log(res);
+
+// =============================================
+// // 함수 - 화살표 함수
+// 일반 함수
+function hello1() {
+  return "Hello~";
+}
+const add1 = function (a, b) {
+  return a + b;
+};
+const log1 = function (c) {
+  console.log(c);
+};
+
+// 화살표 함수
+const hello2 = () => "Hello~";
+const add2 = (a, b) => a + b;
+const log2 = (c) => {
+  console.log(c);
+};
+
+// ---------------------------------------------
+// 화살표 함수의 소괄호 생략
+
+const a = () => {};
+// const b = x => {};
+const c = (x, y) => {};
+
+// ---------------------------------------------
+// 화살표 함수의 중괄호 생략
+
+// const a = x => {
+//   return x * x;  //  return 키워드로 시작
+// };
+// const b = x => x * x;
+
+// const c = x => {
+//   console.log(x * x);
+//   return x * x;
+// };
+
+// const d = () => {
+//   return [1, 2, 3];
+// };
+// const e = () => [1, 2, 3]   // 배열데이터
+
+// const g = () => {
+//   return { a:1 }
+// }
+// const h = () => ({ a: 1 })
+// // const h = () => { a: 1 } // Error: Unexpected token ':'
+
+// ---------------------------------------------
+// 객체 데이터의 메소드 축약
+
+const obj = {
+  fnA() {},
+  fnB: function () {},
+  fnC: () => {},
+};
+
+// =============================================
+// // 함수 - 콜백(Callback)
+// 콜백(Callback)
+
+const a = (callback) => {
+  console.log("A");
+  callback();
+};
+const b = () => {
+  console.log("B");
+};
+
+a(b);
+// 'A'
+// 'B'
+
+// ---------------------------------------------
+// 콜백(Callback)
+
+function add(a, b, cb) {
+  // 1초 후 실행
+  setTimeout(() => {
+    cb(a + b);
+  }, 1000);
+}
+add(3, 7, (result) => {
+  console.log(result); // 10
+});
+add(10, 20, (result) => {
+  console.log(result); // 30
+});
+
+// ---------------------------------------------
+// 콜백(Callback)
+
+const h1El = document.querySelector("h1");
+h1El.addEventListener("click", () => {
+  console.log(h1El.textContent);
+});
+// =============================================
+// // 함수 - 즉시실행함수(IIFE)
+// 함수 정의(표본)
+const double = () => {
+  // ...
+};
+// 함수 실행(호출)
+double();
+
+// 함수 정의 및 실행
+// 즉시실행함수 (IIFE, Immediately Invoked Function Expression)
+// ;(함수)()
+(() => {
+  // ...
+})();
+
+// '즉시실행함수'의 다양한 사용법
+(() => {})(); // (화살표함수)()
+(function () {})(); // (일반함수)()
+(function () {})(); // (일반함수())
+!(function () {})(); // !일반함수()
++(function () {})(); // +일반함수()
+
+// =============================================
+// // 함수 - 호출 스케줄링
+// 콜백을 호출하는 타이머 설정
+const timeout = setTimeout(() => {
+  console.log("Hello~");
+}, 5000);
+
+// 타이머를 취소
+const btnEl = document.querySelector("button");
+btnEl.addEventListener("click", () => {
+  console.log("타이머 취소!");
+  clearTimeout(timeout);
+});
