@@ -387,13 +387,14 @@ console.log(usersWithEmail);
 const userWithPhone = users1.filter((user) => user.phone);
 console.log(userWithPhone);
 
+// Array(배열) 표준 내장 객체(Built-in Object)
 // .find() - 배열에서 콜백 테스트를 처음으로 통과하는 요소를 반환합니다.
 // 만약 테스트가 통과하면, 이후 테스트는 진행하지 않습니다.
 // 만약 모든 테스트가 실패하면, `undefined`를 반환합니다.
 
 // const numbers2 = [17, 20, 199, 5, 48];
 const foundNumber = numbers.find((number) => number < 30);
-console.log(foundNumber);
+console.log(foundNumber); // 199
 
 // const users1 = [
 //   { name: 'Neo', age: 12, email: 'neo@heropy.dev' },
@@ -401,17 +402,223 @@ console.log(foundNumber);
 //   { name: 'Lewis', age: 24 },
 // ];
 
-const foundUser = users.find((user) => !user.email);
-console.log(foundUser);
+const foundUser = users.find((user) => !user.email); //
+console.log(foundUser); // { name: 'Lewis', age: 24 }
 
 // =====================================
-// // 표준 내장 객체 - Array 3 - findIndex, forEach
+// // 표준 내장 객체 - Array 3 - findIndex, forEach, includes, join
+// Array(배열) 표준 내장 객체(Built-in Object)
+// .findIndex() - 배열에서 콜백 테스트를 처음으로 통과하는 요소의 인덱스를 반환합니다.
+// 만약 테스트가 통과하면, 이후 테스트는 진행하지 않습니다.
+// 만양 모든 테스트가 실패하면, '-1'를 반환합니다.
+
+// const numbers2 = [17, 20, 199, 5, 48];
+const foundIndex = numbers.findIndex((number) => number === 200);
+console.log(foundIndex); // -1
+
+// const users1 = [
+//   { name: 'Neo', age: 12, email: 'neo@heropy.dev' },
+//   { name: 'Even', age: 47, email: 'evan@heropy.dev' },
+//   { name: 'Lewis', age: 24 },
+// ];
+const foundUserIndex = users.findIndex((user) => !user.email);
+console.log(foundUserIndex); // 2
+
+// Array(배열) 표준 내장 객체(Built-in Object)
+// .forEach() - 배열의 각 요소에 대해 콜백을 호출합니다.
+// 만약 배열이 비어있다면, 아무런 동작도 하지 않습니다.
+// 만약 반복을 종료하고 싶다면, for 반복문을 사용해야 합니다.
+
+// const numbers2 = [17, 20, 199, 5, 48];
+numbers.forEach = [17, 20, 199, 5, 48];
+numbers.forEach((number) => {
+  console.log(number);
+});
+
+let sum = 0;
+numbers.forEach((number) => {
+  sum += number;
+});
+console.log('합계:', sum);
+
+for (const number of numbers) {
+  if (number > 100) {
+    break;
+  }
+  console.log(number);
+}
+
+// Array(배열) 표준 내장 객체(Built-in Object)
+// .includes() - 배열에서 특정 요소가 포함되어 있는지 확인합니다.
+
+// const fruits = ['Apple', 'Banana', 'Cherry']
+
+console.log(fruits.includes('Apple'));
+console.log(fruits.includes('banana')); // false
+
+const numbers = [17, 20, 199, 5, 48];
+
+console.log(numbers.includes(20));
+console.log(numbers.includes(200)); // false
+
+// Array(배열) 표준 내장 객체(Built-in Object)
+// .join() - 베열의 모든 요소를 연결해 하나의 문자열로 만듭니다.
+
+// const fruits = ['Apple', 'Banana', 'Cherry']
+console.log(fruits.join());
+console.log(fruits.join(''));
+console.log(fruits.join(', '));
+console.log(fruits.join('/'));
+
+const msg = 'Hello world!';
+console.log(msg.split('').reverse().join('')); // !dlrow olleH
 
 // =====================================
 // // 표준 내장 객체 - Array 4 - map, push, reduce
+// Array(배열) 표준 내장 객체(Built-in Object)
+// .map() - 배열의 모든 요소에 대해 각 콜백을 호출하고 반환된 결과로 새로운 배열로 반환합니다.
+
+// const numbers = [17, 20, 199, 5, 48];
+const doubleNumbers = numbers.map((number) => number * 2);
+console.log(doubleNumbers); // [34, 40, 398, 10, 96]
+console.log(numbers); // [17, 20, 199, 5, 48]
+
+// const fruits = ['Apple', 'Banana', 'Cherry']
+const capitalizeFruits = fruits.map((fruit) => fruit.toUpperCase());
+console.log(capitalizeFruits); // ['APPLE', 'BANANA', 'CHERRY']
+console.log(fruits); // ['Apple', 'Banana', 'Cherry']
+
+// const users = [
+//   { name: 'Neo', age: 12, email: 'neo@heropy.dev' },
+//   { name: 'Even', age: 47, email: 'evan@heropy.dev' },
+//   { name: 'Lewis', age: 24 },
+// ];
+const userEmails = users.map((user) => user.email);
+console.log(userEmails); // ['neo@heropy.dev', 'evan@heropy.dev', undefined]
+console.log(userEmails.filter((email) => email)); // ['neo@heropy.dev', 'evan@heropy.dev']
+
+// Array(배열) 표준 내장 객체(Built-in Object)
+// .push() - 배역의 마지막에 하나 이상의 요소를 추가하고, 배열의 새로운 길이를 반환합니다.
+// 배열 원본이 변경됩니다!
+
+// const fruits = ['Apple', 'Banana', 'Cherry']
+console.log(fruits.push('Durian'));
+console.log(fruits.length);
+console.log(fruits);
+
+// const numbers = [17, 20, 199, 5, 48];
+console.log(numbers.push(9, 10, 11));
+console.log(numbers.length);
+console.log(numbers);
+
+// Array(배열) 표준 내장 객체(Built-in Object)
+// .reduce() - 배열의 각 요소에 대해 콜백을 호출하고,
+// 각 콜백의 반환 값을 다음 콜백으로 전달해 마지막 콜백의 반환 값을 최종 반환합니다.
+
+// const numbers = [17, 20, 199, 5, 48];
+
+let sum1 = 0;
+numbers.forEach((number) => {
+  sum1 += number;
+});
+console.log('합계:', sum1); // 합계: 289
+
+const sum2 = numbers.reduce((accumulator, number) => {
+  return accumulator + number;
+}, 0);
+console.log('합계:', sum2); // 합계: 289
+
+// const users = [
+//   { name: 'Neo', age: 12, email: 'neo@heropy.dev' },
+//   { name: 'Even', age: 47, email: 'evan@heropy.dev' },
+//   { name: 'Lewis', age: 24 },
+// ];
+const sum3 = users.reduce((acc, user) => acc + user.age, 0);
+console.log(sum3);
 
 // =====================================
 // // 표준 내장 객체 - Array 5 - reverse, slice, some, sort
+// Array(배열) 표준 내장 객체(Built-in Object)
+// .reverse() - 배열의 순서를 반전합니다.
+// 배열 원본이 변경됩니다!
+
+// const fruits1 = ['Apple', 'Banana', 'Cherry']
+console.log(fruits1.reverse()); // ['Cherry', 'Banana', 'Apple']
+console.log(fruits1); // ['Cherry', 'Banana', 'Apple']
+
+// const fruits2 = ['Apple', 'Banana', 'Cherry']
+console.log([...fruits2].reverse()); // ['Cherry', 'Banana', 'Apple']
+console.log(fruits2); // ['Apple', 'Banana', 'Cherry']
+
+// const msg = 'Hello world!'
+console.log(msg.split('').reverse().join('')); // !dlrow olleH
+
+// Array(배열) 표준 내장 객체(Built-in Object)
+// .slice() - 배열의 일부를 추출해 새로운 배열로 변환합니다.
+
+const numbers = [100, 200, 300, 400, 500, 600, 700, 800, 900];
+
+console.log(numbers.slice(0, 3)); // [100, 200, 300]
+console.log(numbers.slice(4, -1)); // [500, 600, 700, 800]
+console.log(numbers.slice(4)); // [500, 600, 700, 800, 900]
+console.log(numbers.slice(-4)); // [600, 700, 800, 900]
+console.log(numbers.slice(-4, -1)); // [600, 700, 800]
+console.log(numbers); //[100, 200, 300, 400, 500, 600, 700, 800, 900]
+
+// Array(배열) 표준 내장 객체(Built-in Object)
+// .some() - 배열의 요소 중 콜백 테스트를 통과하는 요소가 하나라도 있는지 확인합니다.
+// 만약 테스트가 통과하면, 이후 테스트는 진행하지 않습니다.
+
+// const numbers = [17, 20, 199, 5, 48];
+const isValid = numbers.some((number) => number > 200);
+console.log(isValid); // false
+// const users = [
+//   { name: 'Neo', age: 12, email: 'neo@heropy.dev' },
+//   { name: 'Even', age: 47, email: 'evan@heropy.dev' },
+//   { name: 'Lewis', age: 24 },
+// ];
+console.log(users.some((user) => user.email)); // true
+console.log(users.some((user) => user.phone)); // false
+
+// Array(배열) 표준 내장 객체(Built-in Object)
+// .sort() - 배열의 요소를  콜백의 반환 값에 따라 정렬합니다.
+// 만약 콜백을 제공하지 않으면, 요소를 유니코드 포인트 순서대로 정렬합니다.
+//  배열 원본이 변경됩니다!
+
+// const numbers = [17, 20, 199, 5, 48];
+
+numbers.sort();
+console.log(numbers);
+
+numbers.sort((a, b) => a - b);
+console.log(numbers);
+
+numbers.sort((a, b) => b - a);
+console.log(numbers);
+
+// const users = [
+//   { name: 'Neo', age: 12, email: 'neo@heropy.dev' },
+//   { name: 'Even', age: 47, email: 'evan@heropy.dev' },
+//   { name: 'Lewis', age: 24 },
+// ];
+
+users.sort((a, b) => a.age - b.age);
+console.log(users);
+
+users.sort((a, b) => b.age - a.age);
+console.log(users);
 
 // =====================================
 // // 표준 내장 객체 - Array 6 - splice, unshift, isArray, from
+
+// Array(배열) 표준 내장 객체(Built-in Object)
+// .splice() -
+
+// Array(배열) 표준 내장 객체(Built-in Object)
+// .unshift() -
+
+// Array(배열) 표준 내장 객체(Built-in Object)
+// .isArray() -
+
+// Array(배열) 표준 내장 객체(Built-in Object)
+// .from() -
