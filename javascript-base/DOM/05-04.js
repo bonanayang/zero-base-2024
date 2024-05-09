@@ -1,0 +1,71 @@
+// DOM - 생성, 조회, 수정
+// 노드.textContent - 노드의 모든 텍스트를 확인(Get)하거나 지정(Set)합니다.
+
+// // Get
+// const el = document.querySelector('child');
+// console.log(el.textContent); // 사과
+
+// // Set
+// el.textContent = '오렌지';
+// console.log(el.textContent); // 오렌지
+
+// -----------------------------------
+// DOM - 생성, 조회, 수정
+// 요소.innerHTML - 요소의 내부 HTML을 확인(Get)하거나 지정(Set)합니다.
+
+// // Get
+// const el = document.querySelector('.parent');
+// console.log(el.innerHTML);
+// // <!-- 주석 1 -->
+// // <div id="c1" class="child">사과</div>
+// // <div class="child">바나나</div>
+// // <div class="child">체리</div>
+// // <!-- 주석 2 -->
+// // 텍스트 1 텍스트 2
+
+// // Set
+// el.innerHTML = '<div class="child" style="font-size: 100px; color: red;">두리안</div>';
+// console.log(el.innerHTML);
+// // <div class="child" style="font-size: 100px; color: red;">두리안</div>
+// -----------------------------------
+
+// DOM - 생성, 조회, 수정
+// 요소.dataset - 요소의 `data-` 속성을 확인(Get)하거나 지정(Set)합니다.
+
+// const el = document.querySelector('.child');
+// const str = 'Hello world!';
+// const num = 123;
+// const obj = { a: 1, b: 2 };
+
+// console.log(el.dataset); // DOMStringMap {abc: 'ABC'}
+
+// el.dataset.helloWorld = str; // camelCase로 작성(JS) -> kebab-case로 자동 변환 출력됨(HTML)
+// el.dataset.number = num;
+// el.dataset.object = JSON.stringify(obj); // JSON 문자화
+// // HTML Entity(특수코드 문자)는 <,>, " 등 HTML에서의 특수한 기능의 기호들을, 기호 글자 그대로 사용하기 위해 사용할 수 있는 특수한 문제셋입니다.
+// console.log(el.dataset); // DOMStringMap  {helloWorld: 'Hello world!', number: '123', object: '{"a":1,"b":2}'}
+
+// console.log(el.dataset.helloWorld); // Hello world!
+// console.log(el.dataset.number); // 123
+// console.log(JSON.parse(el.dataset.number)); // 123
+// console.log(el.dataset.object); // {"a":1,"b":2}
+// console.log(JSON.parse(el.dataset.object)); // {a: 1, b: 2}
+// console.log(el.dataset.abc); // ABC
+// -----------------------------------
+// DOM - 생성, 조회, 수정
+// 요소.dataset - 요소의 `data-` 속성을 확인(Get)하거나 지정(Set)합니다.
+
+const users = [
+  { name: 'Neo', age: 22 },
+  { name: 'Evan', age: 48 },
+  { name: 'Lewis', age: 7 },
+];
+const userEls = users.map((user) => {
+  const divEl = document.createElement('div');
+  divEl.textContent = user.name;
+  divEl.dataset.age = user.age;
+  return divEl;
+});
+document.querySelector('.parent').append(...userEls);
+
+console.log(Number(document.querySelector('[data-age]').dataset.age)); // 22

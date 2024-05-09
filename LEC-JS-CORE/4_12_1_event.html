@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <h2>좋아하는 자동차 브랜드를 고르시오</h2>
+
+    <p>예제1: html element 에 직접 이벤트 등록하기</p>
+
+    <select id="selectCar" onclick="onChangeSelectCar()">
+      <option value="">선택</option>
+      <option value="Audi">Audi</option>
+      <option value="BMW">BMW</option>
+      <option value="Volvo">Volvo</option>
+    </select>
+
+    <p>당신이 고른 브랜드는 !!! <b id="demo"></b></p>
+
+    <script>
+      function onChangeSelectCar() {
+        const selectedBrand = document.getElementById('selectCar').value;
+        const outputArea = document.getElementById('demo');
+        outputArea.innerHTML = selectedBrand;
+        outputArea.style.color = 'red';
+      }
+    </script>
+  </body>
+</html>

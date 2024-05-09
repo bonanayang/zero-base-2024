@@ -1,0 +1,78 @@
+// DOM - 생성, 조회, 수정
+// 요소.classList.add() - 값을 추가
+// 요소.classList.remove() - 값을 제거
+// 요소.classList.toggle() - 값을 토글
+// 요소.classList.contains() - 값을 확인
+
+// const el = document.querySelector('.child');
+
+// el.classList.add('active');
+// console.log(el.classList.contains('active')); // true
+
+// el.classList.remove('active');
+// console.log(el.classList.contains('active')); // false
+
+// el.addEventListener('click', () => {
+//   el.classList.toggle('active');
+//   console.log(el.classList.contains('active'));
+// });
+// --------------------------------------------
+// DOM - 생성, 조회, 수정
+// 요소.style - 요소의 'style' 속성을 확인(Get)하거나 지정(Set)힙니다.
+
+// const el = document.querySelector('.child');
+
+// // 개별 지정할 수 있습니다.
+// el.style.width = '100px';
+// el.style.fontSize = '20px';
+// el.style.backgroundColor = 'green';
+// el.style.position = 'absolute';
+
+// // 한 번에 지정할 수 있습니다.
+// Object.assign(el.style, {
+//   width: '100px',
+//   fontSize: '20px',
+//   backgroundColor: 'green',
+//   position: 'absolute',
+// });
+
+// console.log(el.style); //CSSStyleDeclaration {0: 'width', 1: 'font-size', 2: 'background-color', 3: 'position', accentColor: '', additiveSymbols: '', alignContent: '', alignItems: '', alignSelf: '', …}
+// console.log(el.style.width); // 100px
+// console.log(el.style.fontSize); // 20px
+// console.log(el.style.backgroundColor); // green
+// console.log(el.style.position); // absolute
+// --------------------------------------------
+// DOM - 생성, 조회, 수정
+// 요소.style - 요소의 'style' 속성을 확인(Get)하거나 지정(Set)힙니다.
+
+// const el = document.querySelector('.child');
+// el.style.backgroundColor = 'green';
+// el.style.width = '100px';
+// el.style.transition = '1s';
+
+// el.addEventListener('click', () => {
+//   const width = Number.parseInt(el.style.width, 10);
+//   el.style.width = `${width + 50}px`;
+// });
+// --------------------------------------------
+// DOM - 생성, 조회, 수정
+// 요소.getAttribute(속성) - 요소의 속성을 확인합니다.
+// 요소.setAttribute(속성, 값) - 요소에 속성과 값을을 지정합니다.
+// 요소.hasAttribute(속성) - 요소에 속성이 있는지 확인합니다.
+// 요소.removeAttribute(속성) - 요소에 속성을 제거합니다.
+// HTML 속성은 Attribute, CSS 및 JS 속성은 Properties 입니다.
+
+const el = document.querySelector('.child');
+
+console.log(el.getAttribute('class')); // child
+console.log(el.getAttribute('title')); // null
+
+el.setAttribute('class', 'hello world');
+el.setAttribute('title', 'Hello world!');
+
+console.log(el.hasAttribute('class')); // true
+console.log(el.hasAttribute('title')); // true
+console.log(el.hasAttribute('value')); // false
+
+// el.removeAttribute('class');
+// el.removeAttribute('title');
