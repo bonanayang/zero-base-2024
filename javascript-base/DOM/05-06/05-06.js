@@ -16,3 +16,56 @@
 // });
 // -----------------------------------------
 // DOM - 크기와 좌표
+// window.scrollTo(), 요소.scrollTo() -
+// 지정된 좌표로 대상을 스크롤합니다.
+// 대상.scrollTo(X좌표,Y좌표)
+// 대상.scrollTo({
+//   left: X좌표,
+//   top: Y좌표,
+//   behavior: 'smooth'
+// })
+
+// // setTimeout(() => {
+// //   // window.scrollTo(0, 200);
+// //   window.scrollTo({
+// //     left: 100,
+// //     top: 200,
+// //     behavior: 'smooth',
+// //   });
+// // }, 2000);
+
+// const parentEl = document.querySelector('.parent');
+// const childEl = document.querySelector('.child');
+// childEl.addEventListener('click', () => {
+//   window.scrollTo({
+//     top: 200,
+//     left: 200,
+//     behavior: 'smooth',
+//   });
+//   // parentEl.scrollTo({
+//   //   top: 200,
+//   //   left: 0,
+//   //   behavior: 'smooth',
+//   // });
+// });
+// -----------------------------------------
+// DOM - 크기와 좌표
+// 요소.offsetWidth - 테두리 선을 포함한 요소의 너비를 얻습니다.
+// 요소.offsetHeight - 테두리 선을 포함한 요소의 높이를 얻습니다.
+// 요소.clientWidth - 테두리 선을 제외한 요소의 너비를 얻습니다.
+// 요소.clientHeight - 테두리 선을 제외한 요소의 높이를 얻습니다.
+// 요소.scrollWidth - 테두리 선을 제외한 요소의 스크롤 영역 너비를 얻습니다.
+// 요소.scrollHeight - 테두리 선을 제외한 요소의 스크롤 영역 높이를 얻습니다.
+
+const parentEl = document.querySelector('.parent');
+const childEl = document.querySelector('.child');
+
+console.log(parentEl.clientWidth, parentEl.clientHeight);
+console.log(childEl.clientWidth, childEl.clientHeight);
+
+console.log(parentEl.offsetWidth, parentEl.offsetHeight);
+console.log(childEl.offsetWidth, childEl.offsetHeight);
+
+console.log(parentEl.scrollWidth, parentEl.scrollHeight);
+console.log(childEl.scrollWidth, childEl.scrollHeight);
+// -----------------------------------------
