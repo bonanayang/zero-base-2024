@@ -1,0 +1,53 @@
+이벤트(Event)
+대상.addEventListener(이벤트종류, 핸들러) - 대상에서 청취(Listen)할 이벤트 종류와 발생했을 때 호출할 콜백(Handler)을 등록합니다.
+
+const parentEl = document.querySelector('.parent');
+const childEl = document.querySelector('.child');
+
+parent.addEventListener('click', () => {
+  console.log('Parent!');
+});
+childEl.addEventListener('click', () => {
+  console.log('Child!');
+});
+---------------------------------------
+이벤트(Event)
+대상.removeEventListener(이벤트종류, 핸들러) - 대상에 등록했던 이벤트 핸들러를 제거합니다.
+
+const parentEl = document.querySelector('.parent');
+const childEl = document.querySelector('.child');
+
+const handler = () => {
+  console.log('Parent!');
+};
+
+parentEl.addEventListener('click', handler);
+childEl.addEventListener('click', () => {
+  parentEl.removeEventListener('click', handler);
+});
+// ---------------------------------------
+
+.addEventListener() 핸들러의 첫 매개변수로, 발생한 이벤트의 정보를 가진 객체를 전달합니다.
+
+// event.preventDefault() - 이벤트의 기본 동작을 방지합니다.
+이벤트 버블링(Event Bubbling)
+
+// event.stopPropagation() - 하위 요소에서 상위 요소로의 이벤트 전파(버블)를 정지합니다.
+
+// event.stopPropagation() - 하위 요소에서 상위 요소로의 이벤트 전파(버블)를 정지합니다.
+
+이벤트 캡쳐링(Event Capturing)
+// .addEventListener(이벤트종류, 이벤트핸들러, 옵션)
+// { capture: true } - 이벤트 캡처를 활성화합니다.
+
+
+// 이벤트(Event) / 한글 입력 이벤트 중복
+// 브라우저 입력기(IME)의 CJK(중국어, 일본어, 한글) 문자 구성 중에는 이벤트 핸들러가 2번 실행될 수 있습니다.
+// event.isComposing - 한글 입력 중인지 여부를 확인합니다.
+
+
+마우스와 포인터 이벤트
+
+키보드 이벤트
+
+양식 이벤트

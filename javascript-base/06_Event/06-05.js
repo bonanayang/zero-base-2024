@@ -12,9 +12,15 @@ window.addEventListener('click', () => {
 document.documentElement.addEventListener('click', () => {
   console.log('HTML!');
 });
-document.body.addEventListener('click', () => {
-  console.log('Body!');
-});
+document.body.addEventListener(
+  'click',
+  () => {
+    console.log('Body!');
+  },
+  {
+    capture: true,
+  }
+);
 parentEl.addEventListener('click', (event) => {
   console.log('Parent!');
   // event.stopPropagation() // 버블링 정지!

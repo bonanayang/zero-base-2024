@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JS Test</title>
     <!-- <script type="module" defer src="./05-01.js"></script> -->
-    <script type="module" defer src="./06-07.js"></script>
+    <script type="module" defer src="./06-04.js"></script>
     <style>
       .parent {
         width: 400px;
@@ -23,6 +23,22 @@
         border: 10px solid;
         background-color: orange;
         font-size: 40px;
+        position: relative;
+      }
+      .tooltip {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 50px;
+        z-index: 1;
+        width: 100%;
+        padding: 10px;
+        border: 10px solid;
+        background-color: orange;
+        font-size: 22px;
+      }
+      .tooltip.active {
+        display: block;
       }
     </style>
   </head>
@@ -31,6 +47,7 @@
     <div class="parent">
       <div class="child">
         <a href="https://apple.com" target="_blank">사과</a>
+        <div class="tooltip">사과는 사과나무의 열매로, 세계적으로 널리 재배되는 열매 가운데 하나입니다.</div>
       </div>
       <div class="child">
         <a href="https://google.com" target="_blank">바나나</a>

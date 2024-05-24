@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Test</title>
+    <!-- <script type="module" defer src="./05-01.js"></script> -->
+    <script type="module" defer src="./06-07.js"></script>
+    <style>
+      #login {
+        width: 300px;
+        padding: 20px;
+        border: 10px solid;
+        transition: 0.4s;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      #login.active {
+        border-color: royalblue;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="login">
+      <input type="text" placeholder="ID" autocomplete="username" />
+      <!-- autocomplete="username"은 브라우저의 자동완성 기능을 위해, 해당 입력란이 사용자의 이름을 입력 받는다.-->
+      <input type="password" placeholder="PW" autocomplete="current-password" />
+      <button type="reset">초기화</button>
+      <button type="submit">로그인</button>
+    </form>
+  </body>
+</html>

@@ -4,7 +4,7 @@
 
 const inputEl = document.querySelector('input');
 inputEl.addEventListener('keydown', (event) => {
-  // if (event.isComposing) return
+  if (event.isComposing) return;
   if (event.key === 'Enter') {
     const h1El = document.createElement('h1');
     h1El.textContent = inputEl.value;
