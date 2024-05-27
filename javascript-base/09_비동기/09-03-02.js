@@ -16,14 +16,17 @@ timer()
   .then((msg) => {
     console.log(msg);
     console.log(2);
+    return timer();
   })
   .then((msg) => {
     console.log(msg);
     console.log(2);
+    return timer();
   })
   .then((msg) => {
     console.log(msg);
     console.log(2);
+    return timer();
   })
   .then((msg) => {
     console.log(msg);
