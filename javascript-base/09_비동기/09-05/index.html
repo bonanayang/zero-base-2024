@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TEST</title>
+    <script type="module" defer src="./09-05-01.js"></script>
+    <style>
+      .users {
+        padding: 0;
+      }
+      .users li {
+        height: 30px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .users li img {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+      }
+      .users li.no-photo img {
+        filter: grayscale(100%) opacity(50%);
+      }
+      .loader {
+        width: 24px;
+        height: 24px;
+        border: 3px solid red;
+        border-top-color: transparent;
+        border-radius: 50%;
+        box-sizing: border-box;
+        animation: loader 1s infinite linear;
+      }
+      @keyframes loader {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>HEY</h1>
+  </body>
+</html>
