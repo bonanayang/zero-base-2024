@@ -11,14 +11,14 @@ h1El.addEventListener('click', async () => {
   ulEl.innerHTML = '';
   ulEl.append(loaderEl);
   try {
-    const res = await fetch('https://api.heropy.dev/vsers');
+    const res = await fetch('https://api.heropy.dev/v0/users'); // 에러 확인
     const data = await res.json();
     console.log(data);
     const { users } = data;
     const liEls = users.map((user) => {
       const liEl = document.createElement('li');
       liEl.textContent = user.name;
-      liEl.dataset.photo = user.photo?.url || 'https://heropy.dev/favicon.png';
+      liEl.dataset.photo = user.photo?.url || 'https://heropy.dev/favicon.ng'; // 에러 확인
       if (!user.photo) {
         liEl.classList.add('no-photo');
       }
@@ -47,11 +47,15 @@ h1El.addEventListener('click', async () => {
 });
 
 function loadImage(src) {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
+    // 약속을 거부하는 상황
     const imgEl = document.createElement('img');
     imgEl.src = src;
     imgEl.addEventListener('load', () => {
       resolve(imgEl);
+    });
+    imgEl.addEventListener('error', () => {
+      reject(new Error('이미지를 로드할 수 없어요..'));
     });
   });
 }
