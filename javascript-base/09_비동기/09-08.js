@@ -26,3 +26,29 @@ fetch('https://api.heropy.dev/v0/users')
 // Read: GET - 데이터 조회
 // Update: PUT(PATCH) - 데이터 수정
 // Delete: DELETE - 데이터 삭제
+
+//// URL 구조
+// https:www.heropy.dev/p/QOWqjv?key=value&a=12&b=34#h1-title
+// https: 통신 규약(Protocol)
+// www.heropy.dev: 도메인(Domain)
+// /p/QOWqjv: 경로(Path)
+// ?key=value&a=12&b=34: 쿼리(Query)
+// #h1-title: 해시(Hash)
+
+//// HTTP 상태 코드
+// 1xx: 처리 중
+// 2xx: 성공
+// 3xx: 리다이렉트
+// 4xx: 클라이언트 오류
+// 5xx: 서버 오류
+
+// 200: 정상적으로 처리됨
+// 400: 잘못된 요청
+// 401: 인증 정보가 부족함
+// 403: 권한이 없음
+// 404: 찾을 수 없음
+// 500: 서버 오류
+
+// fetch 함수
+// fetch(url, options)
+// options.method:
