@@ -1,6 +1,10 @@
 // 네트워크 통신과 fetch 함수
 
-fetch('https://api.heropy.dev/v0/users')
+fetch('https://api.heropy.dev/v0/users', {
+  // method: 'GET',
+  // headers: {},
+  // body: undefined,
+})
   .then((res) => res.JSON())
   .then((data) => console.log(data));
 
@@ -51,4 +55,20 @@ fetch('https://api.heropy.dev/v0/users')
 
 // fetch 함수
 // fetch(url, options)
-// options.method:
+// options.method:요청 종류(GET, POST, PUT, DELETE 등)
+// options.headers: 요청 메타 정보
+// options.body: 요청 데이터
+fetch('https://api.heropy.dev/v0/users', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    name: 'HEROPY',
+    age: 85,
+    isValid: true,
+    emails: ['thesecon@gmail.com'],
+  }),
+})
+  .then((res) => res.json())
+  .then((data) => console.log(data));
