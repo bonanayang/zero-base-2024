@@ -8,10 +8,10 @@ async function getMovies(moviesName) {
 const titles = ['frozen', 'avengers', 'avatar'];
 
 //// 배열 메소드 반복
-titles.forEach(async (title, index) => {
-  const movies = await getMovies(title);
-  console.log(`${index + 1}) ${title}`, movies);
-});
+// titles.forEach(async (title, index) => {
+//   const movies = await getMovies(title);
+//   console.log(`${index + 1}) ${title}`, movies);
+// });
 
 //// for 반복문
 (async () => {
