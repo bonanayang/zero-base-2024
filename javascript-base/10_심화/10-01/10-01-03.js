@@ -14,8 +14,8 @@ class User {
 }
 
 const neo = { name: 'Neo' };
-const evan = { name: 'Evan', parent: neo };
-const lewis = { name: 'Lewis', parent: evan };
-const amy = { name: 'Amy', parent: lewis };
+const evan = { name: 'Evan', neo };
+const lewis = { name: 'Lewis', evan };
+const amy = { name: 'Amy', lewis };
 
-console.log(getRootUser(amy));
+console.log(User.getRootUser(evan));
