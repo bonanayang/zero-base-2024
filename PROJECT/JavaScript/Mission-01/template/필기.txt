@@ -1,0 +1,38 @@
+중간 1차
+
+1_Toggle
+
+- 사이드 네비게이션의 상태
+  - 페이지 이동 또는 리로드 시에도 이전에 적용된 사이드 네비게이션 상태가 모든 웹페이지에 동일하게 적용되어야 힌다.
+  - 따라서 사이드 네비게이션의 상태는 애플리케이션 전역에서 사용할 수 있는 상태, 즉 전역 상태로서 관리해야 한다.
+  - 전역 상태는 새로고침이나 페이지 이동 시에도 유지되어야 한다.
+  - 따라서 전역 상태는 localStoragesk DataBase 등을 사용해 영속적으로 관리할 필요가 있다. // 베이터베이스에 저장한 데이터를 실제 영속성있게 관리하는 것 별개로 웹브라우저를 통해서도 관리 할 수 있음
+
+- DOMContentLoaded - https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event
+  - https://udn.realityripple.com/docs/Web/API/Document/DOMContentLoaded_event
+  - 웹페이지가 로딩(좀 더 정확히 말하자면 DOMContentLoaded 이벤트는 DOM이 완성된 직후 발생한다.)되면 로컬 스토리지에 저장되어 있는 상태를 로드한다.
+  - 새로고침 시 active 클래스에 의해 nav 요소와 main 요소의 위치가 이동하는 움직임이 사용자에게 보이는 경우가 있다.
+    이를 방지하기 위해 미리 css에 body {visibility: 'hidden'}을 추가해 두었다.
+    active 클래스가 추가된 이후에 body를 표시한다.
+
+- 그러면 계쏙해서 저장해야될까?
+  - https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event
+  - beforeunload 이벤트가 발생하면 로컬 스토리지에 상태를 저장하는 편이 효율적이다.
+  - beforeunload 이벤트는 사용자가 웹페이지를 떠나기(새로고침, 앞으로/뒤로 가기, 브라우저 닫기, firm submit 등) 직전에 발생한다.
+
+- state util 함수를 사용해보자.
+
+const KEY = "state";
+
+export const saveSate = (state) => {
+  if (typeof state !== "object") {
+    throw new TypeError("매개변수 state에는 객체가 전달되어야 합니다.");
+  }
+  const serializedState = JSON.stringify(state);
+  localStorage.setItem(KEY, serializedState);
+};
+
+export const loadState = () => {
+  const serializedState = localStorage.getItem(KEY);
+  return JSON.parse(serializedState)
+}

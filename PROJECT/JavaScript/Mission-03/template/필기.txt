@@ -1,0 +1,35 @@
+3_star-rating
+
+
+// -------------------------------------------------------
+$containers.forEach(($container, i) => {
+  StarRating($container);
+  $container.addEventListner("rating-change", (e) => {
+    const rating = e.detail;
+    $currentRatings[i].textContent = rating;
+  });
+});
+
+$container.dispatchEvent(
+  new CustomEvent("rating-change", {
+    detail: value, // 이벤트와 함께 전달할 정보
+    bubbles: true, // 버블링 여부
+  })
+);
+// -------------------------------------------------------
+const { maxRating = 5 } = $container.dataset;
+
+if (maxRating === "0") {
+  throw new Error(
+    `StarRating 컴포넌트의 max-rating 어트리뷰트 값은 1 이상이어야 합니다.`
+  );
+}
+// -------------------------------------------------------
+
+- mouseover 이벤트는 버블링되지만 mouseenter는 버블링되지 않는다.
+
+- mouseout 이벤트는 버블링되지만 mouseseleave는 버블링되지 않는다.
+  - mouseover 이벤트는 마우스 포인터가 요소 내부에서 이동하면 발생하며, 이벤트가 발생한 요소에서 시작하여 부모 요소로 전파 됨
+  - 즉, 자식 요소에서 마우스를 움직여도 부모 요소에서도 mouseover 이벤트가 발생합니다. 이러한 동작 방식 때문에 mouseover 이벤트는 버블링됩니다.
+  - 이벤트가 발생한 요소에서 시작하여 부모 요소로 전파되지 않습니다.
+  

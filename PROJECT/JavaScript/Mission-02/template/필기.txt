@@ -1,0 +1,14 @@
+2_AnalogClock
+
+- css custom property
+https://css-tricks.com/updating-a-css-variable-with-javascript
+
+- 초침 : 1초당 몊도 회전
+  $secondHand.style.setProperty('--deg', seconds * 몇도);
+
+- 분침 : 1시간당 360도, 1분당 몇도, 1초당 몇도 회전
+  $minuteHand.style.setProperty('--deg', minutes * 몇도 + seconds * 몇도);
+
+- 시침 : 1시간당 30도, 1분당 몇도, 1초당 약 몇도 회전
+  $hourHand.style.setProperty('--deg', hours * 30 + minutes * 몇도 + seconds * (몇도 / 60));
+  

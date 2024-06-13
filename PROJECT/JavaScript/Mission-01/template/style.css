@@ -13,9 +13,9 @@ body {
 body {
   visibility: hidden;
 }
-body.visible {
+/* body.visible {
   visibility: visible;
-}
+} */
 .container {
   position: relative;
   overflow-x: hidden; /* 가로 scroll bar 방지 */
